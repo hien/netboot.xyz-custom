@@ -18,9 +18,10 @@ goto ${custom_choice}
 goto custom_exit
 
 :option_one
-kernel http://path.to/vmlinuz
-initrd http://path.to/initrd
-imgargs vmlinuz put_kernel_img_args_here
+imgfree
+kernel http://103.97.125.89/xen dom0_max_vcpus=1-2 dom0_mem=752M,max:752M com1=115200,8n1 console=com1,vga
+module http://103.97.125.89/xenserver/boot/vmlinuz xencons=hvc console=hvc0 console=tty0 answerfile=http://103.97.125.89/xen.xml install 
+module http://103.97.125.89/xenserver/install.img
 boot || goto custom_exit
 
 :option_two
